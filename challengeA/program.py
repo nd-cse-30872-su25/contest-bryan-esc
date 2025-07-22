@@ -2,22 +2,21 @@
 import sys
 
 
-def count_buildings(building: list[int]) -> int:
-    total_buildings = 1
-    curr = building[0]
-
-    for el in building[1:]:
-        if curr >= el:
-            total_buildings += 1
-        curr = el
-
-    return total_buildings
+def solve(buildings: list[int]) -> int:
+    curr_max = float('-inf')
+    count = 0
+    buildings.reverse()
+    for i in range(0, len(buildings)):
+        if buildings[i] > curr_max:
+            curr_max = buildings[i]
+            count += 1
+    return count
 
 
 def main():
     for line in sys.stdin:
         build = [int(x) for x in line.split()]
-        print(count_buildings(build))
+        print(solve(build))
 
 
 if __name__ == "__main__":
