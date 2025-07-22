@@ -5,29 +5,6 @@ import sys
 points = (2, 3, 7)
 
 
-# def find_targets(target: int, total: int = 0, total_list=[]):
-#     if total == target:
-#         yield sorted(total_list)
-#     for point in points:
-#         if total + point <= target:
-#              yield from find_targets(target, total + point, total_list + [point])
-# def solve(target: int):
-#     result = [target + 1] * (target + 1)
-#     ways_result = [[] for _ in range(target+1)]
-#
-#     result[0] = 0
-#     for i in range(1, target+1):
-#         for point in points:
-#             if i >= point and result[i-point]+1  < result[i]:
-#                 result[i] = result[i-point]+1
-#                 ways_result[i] = ways_result[i-point]+[point]
-#     if result[target] == target+1:
-#         return []
-#
-#     print(ways_result)
-#     return ways_result[target]
-
-
 def solve(amount: int):
     res = []
 
