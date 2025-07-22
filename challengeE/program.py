@@ -40,17 +40,5 @@ def main():
                 print(f"{target}:", ", ".join(list(map(str, path))))
 
 
-# def main():
-#     for line in sys.stdin:
-#         target = int(line)
-#         tree = list(map(int, sys.stdin.readline().split()))
-#         res = list(find_paths(tree, target, tree[0], [tree[0]]))
-#         result = list(enumerate(res))
-#         sorted_result = sorted(result, key=lambda x: x[1])
-#         result_2 = [row for index, row in sorted_result]
-#         for path in result_2:
-#             print(f"{target}:", ", ".join(list(map(str, path))))
-
-
 if __name__ == "__main__":
     main()
