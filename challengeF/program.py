@@ -30,19 +30,16 @@ def reconstruct_path(grid: Grid, rows: int, cols: int, table: Grid) -> list[int]
     path = [end_row + 1]
     r = end_row
     c = cols - 1
-
     while c > 0:
         curr_cost = table[r][c] - grid[r][c]
         prev_rows = [(r - 1 + rows) % rows, r, (r + 1) % rows]
         prev_rows.sort()
-
         for prev_r in prev_rows:
             if table[prev_r][c - 1] == curr_cost:
                 path.append(prev_r + 1)
                 r = prev_r
                 break
         c -= 1
-
     path.reverse()
     return path
 
@@ -55,7 +52,8 @@ def main():
             break
         grid = read_input(rows)
         min_table = min_path(grid, rows, cols)
-        print(min_table[rows - 1][cols - 1])
+        min_cost = min(min_table[r][cols - 1] for r in range(rows))
+        print(min_cost)
         path = reconstruct_path(grid, rows, cols, min_table)
         print(" ".join(map(str, path)))
 
