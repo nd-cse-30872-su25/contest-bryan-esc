@@ -2,13 +2,30 @@
 
 import sys
 from dataclasses import dataclass
+from typing import Optional
 
 
 @dataclass
 class Node:
-    dad: str
-    mom: str
+    name: str
+    spouse: str
     children: list["Node"]
+    parent: Optional["Node"]
+
+    def add_child(self, child: list["Node"]):
+        self.children = child
+
+    def add_parent(self, parent: "Node"):
+        self.parent = parent
+
+
+@dataclass
+class Family:
+    members = {}
+
+    def add_person(self, person: Node):
+        if person.name not in self.members:
+            self.members[person.name] = person
 
 
 def main():
